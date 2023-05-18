@@ -1,6 +1,8 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 import pytest
+
 from src.item import Item
+
 
 def test_calculate_total_price():
     item1 = Item("Смартфон", 10000, 20)
@@ -37,7 +39,6 @@ def test_string_to_number():
         assert str(e) == "Длина наименования товара превышает 10 символов."
 
 def test_instantiate_from_csv():
-    Item.instantiate_from_csv()
     products = Item.instantiate_from_csv()
     assert len(products) == 5
     assert products[0].name == "Смартфон"

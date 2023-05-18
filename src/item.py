@@ -1,11 +1,11 @@
 import csv
+
 class Item:
     """
     Класс для представления товара в магазине.
     """
     pay_rate = 1.0
     all = []
-
 
     def __init__(self, name: str, price: float, quantity: int) -> None:
         """
@@ -15,7 +15,7 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
-        self.__name = name
+        self.name = name
         self.price = price
         self.quantity = quantity
         self.all.append(self)
@@ -35,7 +35,6 @@ class Item:
         self.price *= self.pay_rate
         return self.price
 
-
     @property
     def name(self):
         return self.__name
@@ -52,16 +51,14 @@ class Item:
         Инициализирует экземпляры класса `Item` данными из файла _src/items.csv
         """
         cls.all = []
-        with open("D:\SkyPro\electronics-shop-project\src\items.csv", newline='') as csvfile:
+        with open("src/items.csv", newline='') as csvfile:
             data = csv.DictReader(csvfile)
             for row in data:
                 cls(row['name'], row['price'], int(row['quantity']))
             return cls.all
 
-
-
     @staticmethod
-    def string_to_number(string:str):
+    def string_to_number(string: str):
         """
         Cтатический метод, возвращающий число из числа-строки
         """
@@ -71,4 +68,3 @@ class Item:
             num = int(string[0])
             return num
 
-print(Item.instantiate_from_csv())
