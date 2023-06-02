@@ -31,13 +31,13 @@ def test_string_to_number():
     try:
         item1.name = "Очень длинное наименование товара"
     except Exception as e:
-        assert str(e) == "Длина наименования товара превышает 10 символов."
+        assert str(e) == "Длина наименования товара превышает 10 символов"
 
     # TestCase #2
     try:
         item2.name = "Очень длинное наименование товара"
     except Exception as e:
-        assert str(e) == "Длина наименования товара превышает 10 символов."
+        assert str(e) == "Длина наименования товара превышает 10 символов"
 
 def test_instantiate_from_csv():
     with pytest.raises(FileNotFoundError):

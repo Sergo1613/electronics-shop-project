@@ -57,7 +57,8 @@ class Item:
     def name(self, name):
         if len(name) <= 10:
             self.__name = name
-        raise Exception('Длина наименования товара превышает 10 символов')
+        else:
+            raise Exception('Длина наименования товара превышает 10 символов')
 
 
     @classmethod
@@ -75,7 +76,7 @@ class Item:
         except KeyError:
             raise InstantiateCSVError('Файл items.csv поврежден')
         except FileNotFoundError:
-            raise InstantiateCSVError('Отсутствует файл items.csv')
+            raise FileNotFoundError('Отсутствует файл items.csv')
 
     @staticmethod
     def string_to_number(string: str):
