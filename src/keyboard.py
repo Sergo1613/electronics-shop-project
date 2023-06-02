@@ -22,7 +22,7 @@ class MixinLanguage:
 
 class Keyboard(Item, MixinLanguage):
     """Класс, определяющий товар "Клавиатура"""
-    def __int__(self, name, price, quantity):
+    def __init__(self, name, price, quantity):
         super().__init__(name, price, quantity)
 
     def __str__(self):
